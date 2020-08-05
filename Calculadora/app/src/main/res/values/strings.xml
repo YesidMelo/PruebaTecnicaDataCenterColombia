@@ -9,4 +9,6 @@
     <string name="suma">+</string>
     <string name="resultado">Resultado</string>
     <string name="cero">0</string>
+    <string name="no_se_puede_realizar_esta_operacion_verifica_la_informacion_de_los_campos">No se puede realizar esta operacion verifica la informacion de los campos</string>
+    <string name="no_se_puede_realizar_una_divicion_por_cero_intentelo_con_otro_numero">No se puede realizar una divicion por cero intentelo con otro numero</string>
 </resources>
