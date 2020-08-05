@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ManejadorMenu</string>
+    <string name="opcion_2">opcion_2</string>
+    <string name="opcion_1">Opcion 1</string>
+    <string name="opcion_3">Opcion 3</string>
+    <string name="opcion_4">Opcion_4</string>
+</resources>
