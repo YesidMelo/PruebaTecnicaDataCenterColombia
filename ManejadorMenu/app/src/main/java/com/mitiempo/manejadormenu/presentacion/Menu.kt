@@ -1,9 +1,13 @@
-package com.mitiempo.manejadormenu
+package com.mitiempo.manejadormenu.presentacion
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.widget.LinearLayout
+import androidx.drawerlayout.widget.DrawerLayout
+import com.mitiempo.manejadormenu.R
 import kotlinx.android.synthetic.main.view_menu.view.*
 
 class Menu @JvmOverloads constructor(
@@ -19,15 +23,29 @@ class Menu @JvmOverloads constructor(
     }
 
     private fun ponerEscuchadores(){
-        opcion1.setOnClickListener {  escuchadorOpcionSeleccionada?.invoke(opcionesMenu.OPCION_1.aumentarNumeroToque()) }
-        opcion2.setOnClickListener {  escuchadorOpcionSeleccionada?.invoke(opcionesMenu.OPCION_2.aumentarNumeroToque()) }
-        opcion_3.setOnClickListener { escuchadorOpcionSeleccionada?.invoke(opcionesMenu.OPCION_3.aumentarNumeroToque()) }
-        opcion_4.setOnClickListener { escuchadorOpcionSeleccionada?.invoke(opcionesMenu.OPCION_4.aumentarNumeroToque()) }
+        opcion1.setOnClickListener {  notificaAlInvocador(opcionesMenu.OPCION_1.aumentarNumeroToque()) }
+        opcion2.setOnClickListener {  notificaAlInvocador(opcionesMenu.OPCION_2.aumentarNumeroToque()) }
+        opcion_3.setOnClickListener { notificaAlInvocador(opcionesMenu.OPCION_3.aumentarNumeroToque()) }
+        opcion_4.setOnClickListener { notificaAlInvocador(opcionesMenu.OPCION_4.aumentarNumeroToque()) }
+    }
+
+    @SuppressLint("WrongConstant")
+    private fun notificaAlInvocador(opcionesMenu: opcionesMenu){
+        post {
+            escuchadorOpcionSeleccionada?.invoke(opcionesMenu)
+            drawerLayout?.closeDrawer(Gravity.START)
+        }
     }
 
     private var escuchadorOpcionSeleccionada : ((opcionesMenu)->Unit) ?= null
-    fun conEscuchadorOpcionSeleccionada(escuchadorOpcionSeleccionada : ((opcionesMenu)->Unit)) : Menu{
+    fun conEscuchadorOpcionSeleccionada(escuchadorOpcionSeleccionada : ((opcionesMenu)->Unit)) : Menu {
         this.escuchadorOpcionSeleccionada = escuchadorOpcionSeleccionada
+        return this
+    }
+
+    private var drawerLayout : DrawerLayout ?= null
+    fun conDrawerLayout(drawerLayout : DrawerLayout) : Menu {
+        this.drawerLayout = drawerLayout
         return this
     }
 
@@ -43,7 +61,7 @@ class Menu @JvmOverloads constructor(
         }
 
         private var numero_toques = 0
-        fun aumentarNumeroToque() : opcionesMenu{
+        fun aumentarNumeroToque() : opcionesMenu {
             numero_toques++
             return this
         }

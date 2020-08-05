@@ -2,21 +2,92 @@
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contenedor_principal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:openDrawer="start"
-    tools:context=".MainActivity">
+    tools:context=".presentacion.MainActivity"
+    tools:openDrawer="start">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/contenedor"
+        android:id="@+id/numero_veces"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-    <com.mitiempo.manejadormenu.Menu
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/boton_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/label_ha_seleccionado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/ha_seleccionado"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/boton_menu" />
+
+        <TextView
+            android:id="@+id/titulo_seleccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/titulo_seleccion"
+            app:layout_constraintEnd_toEndOf="@+id/label_ha_seleccionado"
+            app:layout_constraintStart_toStartOf="@+id/label_ha_seleccionado"
+            app:layout_constraintTop_toBottomOf="@+id/label_ha_seleccionado" />
+
+        <TextView
+            android:id="@+id/label_fecha_seleccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/fecha_seleccion"
+            app:layout_constraintEnd_toEndOf="@+id/titulo_seleccion"
+            app:layout_constraintStart_toStartOf="@+id/titulo_seleccion"
+            app:layout_constraintTop_toBottomOf="@+id/titulo_seleccion" />
+
+        <TextView
+            android:id="@+id/fecha_seleccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/fecha_seleccion"
+            app:layout_constraintEnd_toEndOf="@+id/label_fecha_seleccion"
+            app:layout_constraintStart_toStartOf="@+id/label_fecha_seleccion"
+            app:layout_constraintTop_toBottomOf="@+id/label_fecha_seleccion" />
+
+        <TextView
+            android:id="@+id/label_numero_veces_selecciono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/numero_veces_que_selecciono_la_opcion"
+            app:layout_constraintEnd_toEndOf="@+id/fecha_seleccion"
+            app:layout_constraintStart_toStartOf="@+id/fecha_seleccion"
+            app:layout_constraintTop_toBottomOf="@+id/fecha_seleccion" />
+
+        <TextView
+            android:id="@+id/contador_numero_veces"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/numero_veces"
+            app:layout_constraintEnd_toEndOf="@+id/label_numero_veces_selecciono"
+            app:layout_constraintStart_toStartOf="@+id/label_numero_veces_selecciono"
+            app:layout_constraintTop_toBottomOf="@+id/label_numero_veces_selecciono" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.mitiempo.manejadormenu.presentacion.Menu
         android:id="@+id/menu_aplicacion"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        
-        />
+
+        android:visibility="gone" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -4,4 +4,10 @@
     <string name="opcion_1">Opcion 1</string>
     <string name="opcion_3">Opcion 3</string>
     <string name="opcion_4">Opcion_4</string>
+    <string name="menu">Menu</string>
+    <string name="ha_seleccionado">Ha seleccionado</string>
+    <string name="titulo_seleccion">Titulo seleccion</string>
+    <string name="fecha_seleccion">Fecha seleccion :</string>
+    <string name="numero_veces_que_selecciono_la_opcion">Numero de veces que selecciono la opcion</string>
+    <string name="numero_veces">Numero veces</string>
 </resources>
